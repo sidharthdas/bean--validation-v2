@@ -16,18 +16,17 @@ import java.util.Set;
  */
 @RestController
 public class EmployeeController {
-
     @Autowired
     Validator validator;
 
     @PostMapping("/employee")
-    public String testEmployee( @RequestBody Employee employee){
+    public String testEmployee(@RequestBody Employee employee) {
         Set<ConstraintViolation<Employee>> set = validator.validate(employee);
         return employee.toString();
     }
 
     @PostMapping("/employee-v2")
-    public String testEmployeeV2(@Valid @RequestBody Employee employee){
+    public String testEmployeeV2(@Valid @RequestBody Employee employee) {
         Set<ConstraintViolation<Employee>> set = validator.validate(employee);
         return employee.toString();
     }
